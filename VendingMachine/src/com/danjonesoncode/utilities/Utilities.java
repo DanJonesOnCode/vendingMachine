@@ -9,6 +9,14 @@ public class Utilities {
 		
 		return null;
 	}
+	
+	public static double intToCurrency(int i) {
+		return i % 100;
+	}
+	
+	public static int currencyToInt(double f) {
+		return (int) Math.floor(f * 100);
+	}
 
 }
 
