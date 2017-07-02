@@ -1,8 +1,9 @@
 package com.danjonesoncode.vendingMachine.managers;
 
 import java.util.HashMap;
-import com.danjonesoncode.vendingMachine.components.Dispenser;
+
 import com.danjonesoncode.utilities.Utilities;
+import com.danjonesoncode.vendingMachine.components.stockComponents.Dispenser;
 
 public class StockManager {
 	
@@ -34,7 +35,7 @@ public class StockManager {
 	}
 	// validations to add new item
 	private boolean canAddNewItem(String dispenserPosition, int amountOfProduct) {
-		if (dispensers.containsKey(dispenserPosition)) {
+		if (dispensers.get(dispenserPosition) != null) {
 			return false;
 		}
 		
@@ -45,9 +46,9 @@ public class StockManager {
 		return true;
 	}
 	
-	public void addNewItem(String dispenserPosition, String productName, int amountOfProduct) {
+	public void addNewItem(String dispenserPosition, String productName, int amountOfProduct, int price) {
 		if(canAddNewItem(dispenserPosition, amountOfProduct)) {
-			dispensers.get(dispenserPosition).addNewProduct(productName, amountOfProduct);
+			dispensers.get(dispenserPosition).addNewProduct(productName, amountOfProduct, price);
 		} 
 
 	}
@@ -64,4 +65,5 @@ public class StockManager {
 		
 		return "Success";
 	}
+	
 }
