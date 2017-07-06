@@ -1,6 +1,6 @@
 package com.danjonesoncode.vendingMachine.components.paymentComponents;
 
-abstract class PaymentReader {
+public abstract class PaymentReader {
 	
 	int currFloat;
 		

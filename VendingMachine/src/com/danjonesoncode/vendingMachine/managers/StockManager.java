@@ -2,7 +2,7 @@ package com.danjonesoncode.vendingMachine.managers;
 
 import java.util.HashMap;
 
-import com.danjonesoncode.utilities.Utilities;
+import com.danjonesoncode.utilities.ConverterUtils;
 import com.danjonesoncode.vendingMachine.components.stockComponents.Dispenser;
 
 public class StockManager {
@@ -10,6 +10,9 @@ public class StockManager {
 	private int maxItems = 0;
 	private int maxPerItem = 0;
 	private HashMap<String, Dispenser> dispensers;
+	private static StockManager sm;
+	private int rows;
+	private int columns;
 
 	private StockManager(int rows, int columns, int maxPerItem) {
 		// 
@@ -22,7 +25,7 @@ public class StockManager {
 		for(int i = 0; i < this.maxItems; i++) {
 			Dispenser d = new Dispenser();
 			
-			String key = Utilities.numericToAlpha(row) + column;
+			String key = ConverterUtils.numericToAlpha(row) + column;
 			dispensers.put(key, d);
 			
 			if (i % columns == 0) {
@@ -32,6 +35,14 @@ public class StockManager {
 			
 			column ++;
 		}
+	}
+	// singleton
+	public static StockManager getStockManager() {
+		if (sm == null) {
+			sm = new StockManager(rows, columns, maxPerItem);
+		}
+		
+		return sm;
 	}
 	// validations to add new item
 	private boolean canAddNewItem(String dispenserPosition, int amountOfProduct) {

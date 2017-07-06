@@ -1,6 +1,6 @@
 package com.danjonesoncode.vendingMachine.components.stockComponents;
 
-import com.danjonesoncode.vendingItems.Product;
+import com.danjonesoncode.vendingMachine.vendingItems.Product;
 
 public class Dispenser {
 	int stockCount = 0;

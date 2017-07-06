@@ -1,4 +1,4 @@
-package com.danjonesoncode.vendingItems;
+package com.danjonesoncode.vendingMachine.vendingItems;
 
 public class Product {
 	

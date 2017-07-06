@@ -1,6 +1,6 @@
 package com.danjonesoncode.utilities;
 
-public class Utilities {
+public class ConverterUtils {
 	public static String numericToAlpha(int i) {
 		
 		if(i > 0 && i < 27) {
