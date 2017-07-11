@@ -7,28 +7,19 @@ import com.danjonesoncode.vendingMachine.components.paymentComponents.*;
 public class PaymentManager {
 	String paymentMethod;
 	static PaymentManager pm;
-	int currFloat = 0;
 	
 	public String getPaymentMethod() {
 		return this.paymentMethod;
 	}
 
-	public void setPaymentMethod(string paymentType) {
+	public void setPaymentMethod(String paymentType) {
 		this.paymentMethod = paymentType;
 	}
-
-	private PaymentManager();
 	
-	public static PaymentManager getPaymentManager() {
-		if(pm == null) {
-			pm = new PaymentManager();
-		}
-		
-		return pm;
-	}
 	
 	public PaymentReader getPaymentReader() {
-		switch (this.paymentMethod.toUpperCase()) {
+	
+		switch (paymentMethod) {
 		
 		case "CASH":
 			return new CoinReader();
@@ -40,5 +31,5 @@ public class PaymentManager {
 			return null;
 		
 		}
-	}
+	}	
 }

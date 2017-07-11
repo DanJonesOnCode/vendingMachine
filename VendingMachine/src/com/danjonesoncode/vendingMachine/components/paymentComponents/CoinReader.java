@@ -4,15 +4,19 @@ import com.danjonesoncode.vendingMachine.components.Constants;
 
 public class CoinReader extends PaymentReader {
 	
-	void clearCurrFloat() {
+	public void clearCurrFloat() {
 		super.clearCurrFloat();
 	}
 	
-	int getCurrFloat() {
+	public int getCurrFloat() {
 		return super.getCurrFloat();
 	}
 	
-	void updateCurrFloat(int paymentAmount) {
-		super.updateCurrFloat(paymentAmount);
+	public void updateCurrFloat(int paymentAmount) {
+		for(int coin : Constants.GBP_CURRENCY_DENOMINATIONS) {
+			if(paymentAmount == coin) {
+				super.updateCurrFloat(paymentAmount);
+			}
+		}
 	}
 }

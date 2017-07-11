@@ -10,11 +10,9 @@ public class StockManager {
 	private int maxItems = 0;
 	private int maxPerItem = 0;
 	private HashMap<String, Dispenser> dispensers;
-	private static StockManager sm;
-	private int rows;
-	private int columns;
 
-	private StockManager(int rows, int columns, int maxPerItem) {
+
+	public StockManager(int rows, int columns, int maxPerItem) {
 		// 
 		this.maxItems = rows * columns;
 		this.maxPerItem = maxPerItem;
@@ -36,13 +34,9 @@ public class StockManager {
 			column ++;
 		}
 	}
-	// singleton
-	public static StockManager getStockManager() {
-		if (sm == null) {
-			sm = new StockManager(rows, columns, maxPerItem);
-		}
-		
-		return sm;
+	
+	public int getItemPrice(String dispenserPosition) {
+		return dispensers.get(dispenserPosition).getPrice();
 	}
 	// validations to add new item
 	private boolean canAddNewItem(String dispenserPosition, int amountOfProduct) {
@@ -64,20 +58,15 @@ public class StockManager {
 
 	}
 	
-	public int checkStock(Dispenser d) {
-		return d.checkStock();
+	public int checkStock(String dispenserPosition) {
+		return dispensers.get(dispenserPosition).checkStock();
 		
 	}
 	
-	public String VendItem(Dispenser d) {
-		if (checkStock(d) == 0) {
-			return "Out of stock. Please make another selection";
-		}
+	public String VendItem(String dispenserPosition) {
+
 		
 		return "Success";
 	}
-
-	public int getItemPrice(String itemPosition) {
-		return dispensers.get(itemPosition).getPrice();
-	}
+	
 }
