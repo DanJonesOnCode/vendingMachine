@@ -76,5 +76,8 @@ public class StockManager {
 		
 		return "Success";
 	}
-	
+
+	public int getItemPrice(String itemPosition) {
+		return dispensers.get(itemPosition).getPrice();
+	}
 }

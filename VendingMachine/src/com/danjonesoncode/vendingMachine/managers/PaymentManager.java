@@ -9,9 +9,15 @@ public class PaymentManager {
 	static PaymentManager pm;
 	int currFloat = 0;
 	
-	String getPaymentMethod() {
-		return paymentMethod;
+	public String getPaymentMethod() {
+		return this.paymentMethod;
 	}
+
+	public void setPaymentMethod(string paymentType) {
+		this.paymentMethod = paymentType;
+	}
+
+	private PaymentManager();
 	
 	public static PaymentManager getPaymentManager() {
 		if(pm == null) {
@@ -22,7 +28,7 @@ public class PaymentManager {
 	}
 	
 	public PaymentReader getPaymentReader() {
-		switch (paymentMethod.toUpperCase()) {
+		switch (this.paymentMethod.toUpperCase()) {
 		
 		case "CASH":
 			return new CoinReader();

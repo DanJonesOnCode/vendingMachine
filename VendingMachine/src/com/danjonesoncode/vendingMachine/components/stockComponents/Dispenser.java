@@ -13,9 +13,18 @@ public class Dispenser {
 		
 		this.product = new Product(productName);
 		this.stockCount = stock;
+		setPrice(price);
 	
 	}
-	
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public int getPrice() {
+		return this.price;
+	}
+
 	public void resetDispenser() {
 		if(this.product != null) {
 			this.product = null;
